@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Football Stars</title>
+
+  <style>
+    /* Simple page colors */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f2;
+      color: #17251d;
+    }
+
+    header {
+      background: #123b27;
+      color: white;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h2 { margin: 0; }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+    }
+
+    .hero {
+      background: #dcefe2;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin: 10px 0;
+      color: #123b27;
+    }
+
+    .button {
+      display: inline-block;
+      background: #e9a928;
+      color: #17251d;
+      padding: 12px 22px;
+      margin-top: 15px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .section {
+      padding: 45px 8%;
+      text-align: center;
+    }
+
+    .players {
+      display: flex;
+      gap: 25px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      width: 280px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px #0002;
+      text-align: left;
+    }
+
+    .card img {
+      width: 100%;
+      height: 230px;
+      display: block;
+      object-fit: cover;
+    }
+
+    .card-content { padding: 18px; }
+    .card h3 { color: #123b27; margin-top: 0; }
+
+    .about {
+      background: #123b27;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #0b2418;
+      color: white;
+    }
+
+    @media (max-width: 600px) {
+      header { display: block; text-align: center; }
+      nav { margin-top: 15px; }
+      nav a { margin: 0 8px; }
+      .hero h1 { font-size: 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Website header -->
+  <header>
+    <h2>FOOTBALL STARS</h2>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#players">Players</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <!-- Main welcome section -->
+  <section class="hero" id="home">
+    <p>WELCOME TO THE WORLD OF FOOTBALL</p>
+    <h1>PLAY WITH PASSION</h1>
+    <p>Discover the talent, skills, and stories of famous footballers.</p>
+    <a class="button" href="#players">Meet the Players</a>
+  </section>
+
+  <!-- Player cards -->
+  <section class="section" id="players">
+    <h2>FEATURED PLAYERS</h2>
+    <p>Three football stars who inspire millions of fans.</p>
+
+    <div class="players">
+      <div class="card">
+        <img src="player1.svg" alt="Illustration of a football player">
+        <div class="card-content">
+          <h3>LIONEL MESSI</h3>
+          <p>Known for his amazing dribbling, passing, and accurate left foot.</p>
+          <b>Position: Forward</b>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="player2.svg" alt="Illustration of a football player">
+        <div class="card-content">
+          <h3>CRISTIANO RONALDO</h3>
+          <p>A powerful goal scorer famous for his speed, strength, and headers.</p>
+          <b>Position: Forward</b>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="player3.svg" alt="Illustration of a football player">
+        <div class="card-content">
+          <h3>KEVIN DE BRUYNE</h3>
+          <p>A creative midfielder with excellent vision and passing skills.</p>
+          <b>Position: Midfielder</b>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About section -->
+  <section class="section about" id="about">
+    <h2>WHY FOOTBALL?</h2>
+    <p>Football brings people together through teamwork, discipline, and passion.</p>
+    <a class="button" href="#home">Back to Top</a>
+  </section>
+
+  <footer>
+    <p>© 2026 Football Stars | Custom Student UI</p>
+  </footer>
+
+</body>
+</html>
