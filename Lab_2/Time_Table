@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Timetable</title>
+<style>
+  :root {
+    --border: #333;
+    --header-bg: #555;
+    --day-bg: #777;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f5f5;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 95%;
+    margin: 20px auto;
+    background: white;
+  }
+
+  th, td {
+    border: 1px solid var(--border);
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  th, .day {
+    background: var(--header-bg);
+    color: white;
+  }
+
+  .day {
+    background: var(--day-bg);
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<h1>BSCS-V-B (Shift-I)</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th>08:00 - 09:00</th>
+    <th>09:00 - 10:00</th>
+    <th>10:00 - 11:00</th>
+    <th>11:00 - 12:00</th>
+    <th>12:00 - 01:00</th>
+    <th>01:00 - 02:00</th>
+    <th>02:00 - 03:00</th>
+  </tr>
+
+  <tr>
+    <td class="day">Monday</td>
+    <td></td>
+    <td>Full Stack Web Development<br>C-205</td>
+    <td>Linear Algebra<br>C-301</td>
+    <td colspan="2">Artificial Intelligence Lab<br>Lab 5 A Block</td>
+    <td></td>
+    <td>Operating Systems<br>C-301</td>
+  </tr>
+
+  <tr>
+    <td class="day">Tuesday</td>
+    <td>Operating Systems<br>C-206</td>
+    <td>Full Stack Web Development<br>C-301</td>
+    <td>Introduction to Management<br>C-206</td>
+    <td></td>
+    <td></td>
+    <td>Linear Algebra<br>C-205</td>
+    <td>Advisory Class<br>C-201</td>
+  </tr>
+
+  <tr>
+    <td class="day">Wednesday</td>
+    <td></td>
+    <td>Design and Analysis of Algorithms<br>Lecture Hall 01</td>
+    <td>Design and Analysis of Algorithms<br>Lecture Hall 01</td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>Artificial Intelligence<br>C-205</td>
+  </tr>
+
+  <tr>
+    <td class="day">Thursday</td>
+    <td></td>
+    <td>Design and Analysis of Algorithms<br>Lecture Hall 01</td>
+    <td>Design and Analysis of Algorithms<br>Lecture Hall 01</td>
+    <td colspan="2">Operating Systems Lab<br>Lab 13 C Block</td>
+    <td></td>
+    <td>Artificial Intelligence<br>C-302</td>
+  </tr>
+
+  <tr>
+    <td class="day">Friday</td>
+    <td></td>
+    <td>Introduction to Management<br>C-203</td>
+    <td>Linear Algebra<br>C-203</td>
+    <td colspan="2">Full Stack Web Development Lab<br>Lab 5 A Block</td>
+    <td></td>
+    <td></td>
+  </tr>
+
+</table>
+
+</body>
+</html>
