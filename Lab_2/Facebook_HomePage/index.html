@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Homepage</title>
+
+  <style>
+    /* Basic page style */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+    }
+
+    /* Top header */
+    header {
+      background-color: #1877f2;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    /* Main content */
+    main {
+      width: 350px;
+      margin: 50px auto;
+    }
+
+    .intro,
+    .login-box {
+      background-color: white;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px #bbb;
+    }
+
+    .intro {
+      text-align: center;
+    }
+
+    .intro h2 {
+      color: #1877f2;
+    }
+
+    /* Login form */
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .login-button {
+      background-color: #1877f2;
+    }
+
+    .create-button {
+      background-color: #42b72a;
+    }
+
+    a {
+      display: block;
+      color: #1877f2;
+      text-align: center;
+      margin: 15px 0;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Website header -->
+  <header>
+    <h1>facebook</h1>
+  </header>
+
+  <!-- Main page content -->
+  <main>
+    <section class="intro">
+      <h2>Connect with friends</h2>
+      <p>Facebook helps you connect and share with the people in your life.</p>
+    </section>
+
+    <section class="login-box">
+      <form>
+        <input type="text" placeholder="Email or phone number">
+        <input type="password" placeholder="Password">
+        <button class="login-button" type="submit">Log In</button>
+      </form>
+
+      <a href="#">Forgotten password?</a>
+
+      <hr>
+
+      <button class="create-button" type="button">Create New Account</button>
+    </section>
+  </main>
+
+</body>
+</html>
