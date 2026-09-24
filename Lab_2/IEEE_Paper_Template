@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IEEE Paper Template</title>
+<style>
+  body {
+    font-family: "Times New Roman", serif;
+    background-color: whitesmoke;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .paper {
+    background-color: white;
+    max-width: 850px;
+    margin: 50px 50px 100px 250px;
+    padding: 40px;
+    box-shadow: 1px 1px 8px gray;
+  }
+
+  /* Title area */
+  .title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .authors {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  .affiliation {
+    text-align: center;
+    font-size: 12px;
+    font-style: italic;
+    margin-bottom: 20px;
+    color: dimgray;
+  }
+
+  /* Abstract and Keywords (full width, before columns) */
+  .abstract {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .abstract b {
+    font-style: italic;
+  }
+
+  /* Two column layout for the body */
+  .content {
+    column-count: 2;
+    column-gap: 25px;
+    font-size: 13px;
+    text-align: justify;
+  }
+
+  .content h2 {
+    font-size: 14px;
+    text-transform: uppercase;
+    border-bottom: 1px solid black;
+    padding-bottom: 3px;
+  }
+
+  .content p {
+    margin-bottom: 10px;
+  }
+
+  .references {
+    font-size: 12px;
+  }
+
+  .references p {
+    margin: 4px 0;
+  }
+</style>
+</head>
+<body>
+
+  <div class="paper">
+
+    <!-- Title -->
+    <div class="title">Title of Your IEEE Research Paper Goes Here</div>
+
+    <!-- Authors -->
+    <div class="authors">First Author, Second Author, Third Author</div>
+    <div class="affiliation">Department of Computer Science, Air University, Islamabad, Pakistan</div>
+
+    <!-- Abstract -->
+    <div class="abstract">
+      <b>Abstract—</b> This is a short summary of your research paper. It explains the problem,
+      your method, and the main result in just a few sentences. Keep it brief and simple.
+      <br><br>
+      <b><i>Keywords—</i></b> HTML, CSS, IEEE format, template, web design
+    </div>
+
+    <!-- Two Column Body -->
+    <div class="content">
+
+      <h2>I. Introduction</h2>
+      <p>
+        This section introduces the topic of your paper. Explain the background,
+        why the problem is important, and what your paper will cover.
+      </p>
+
+      <h2>II. Related Work</h2>
+      <p>
+        This section discusses previous research done by others on this topic
+        and how your work is different or improves upon it.
+      </p>
+
+      <h2>III. Methodology</h2>
+      <p>
+        Explain the method, tools, or approach used to carry out your research
+        or build your project.
+      </p>
+
+      <h2>IV. Results</h2>
+      <p>
+        Present the outcome of your work here. You can describe tables, graphs,
+        or findings from your experiment.
+      </p>
+
+      <h2>V. Conclusion</h2>
+      <p>
+        Summarize what was achieved in the paper and suggest future improvements
+        or next steps.
+      </p>
+
+      <h2>References</h2>
+      <div class="references">
+        <p>[1] Author Name, "Title of the paper," Journal Name, vol. 1, no. 1, pp. 1-5, 2024.</p>
+        <p>[2] Author Name, "Title of the paper," Conference Name, pp. 10-15, 2023.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
