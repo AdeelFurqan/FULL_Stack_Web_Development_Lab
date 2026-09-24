@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adeel Furqan | Portfolio</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #eeeeee;
+      color: #333333;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1100px;
+      min-height: 100vh;
+      margin: auto;
+      background: white;
+    }
+
+    .sidebar {
+      width: 280px;
+      padding: 30px 20px;
+      text-align: center;
+      color: white;
+      background: #444444;
+    }
+
+    .profile-image {
+      width: 140px;
+      height: 140px;
+      border: 4px solid white;
+      border-radius: 50%;
+    }
+
+    .sidebar h1 {
+      margin-bottom: 5px;
+    }
+
+    .sidebar p {
+      color: #dddddd;
+    }
+
+    .sidebar a {
+      display: block;
+      margin: 15px 0;
+      padding: 10px;
+      color: #333333;
+      background: white;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .sidebar a:hover {
+      background: #dddddd;
+    }
+
+    .tagline {
+      margin-top: 25px;
+      padding-top: 20px;
+      border-top: 1px solid #aaaaaa;
+      font-style: italic;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+    }
+
+    section {
+      margin-bottom: 35px;
+    }
+
+    h2 {
+      padding-bottom: 8px;
+      color: #444444;
+      border-bottom: 2px solid #cccccc;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+
+    .skills span {
+      display: inline-block;
+      margin: 5px;
+      padding: 8px 14px;
+      color: white;
+      background: #666666;
+      border-radius: 15px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+
+    .project {
+      padding: 18px;
+      border: 1px solid #dddddd;
+      border-left: 4px solid #555555;
+      background: #fafafa;
+    }
+
+    .project h3 {
+      margin-top: 0;
+      color: #444444;
+    }
+
+    .content a {
+      color: #444444;
+      font-weight: bold;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        display: block;
+      }
+
+      .sidebar {
+        width: 100%;
+      }
+
+      .content {
+        padding: 25px 20px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <img class="profile-image" src="https://avatars.githubusercontent.com/u/219841765?v=4" alt="Adeel Furqan">
+      <h1>Adeel Furqan</h1>
+      <p>I love coding and building useful projects.</p>
+
+      <a href="https://github.com/AdeelFurqan" target="_blank">GitHub: AdeelFurqan</a>
+
+      <div class="tagline">
+        I specialize in Blazor and enjoy learning new technologies.
+      </div>
+    </aside>
+
+    <main class="content">
+      <section>
+        <h2>About Me</h2>
+        <p>
+          I am Adeel Furqan, a passionate developer who loves coding and
+          creating useful projects. I specialize in Blazor and continuously
+          improve my programming skills.
+        </p>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skills">
+          <span>Blazor</span>
+          <span>Python</span>
+          <span>C++</span>
+          <span>JavaScript</span>
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>Tkinter</span>
+          <span>OOP</span>
+        </div>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+        <div class="projects">
+          <div class="project">
+            <h3>Basic Chatbot</h3>
+            <p>A chatbot built with Python that responds to user messages.</p>
+          </div>
+
+          <div class="project">
+            <h3>To-Do List App</h3>
+            <p>A simple task management app built with Python and Tkinter.</p>
+          </div>
+
+          <div class="project">
+            <h3>Tic Tac Toe</h3>
+            <p>A browser game built with HTML, CSS, and JavaScript.</p>
+          </div>
+
+          <div class="project">
+            <h3>Rock Paper Scissors</h3>
+            <p>An interactive game built with HTML, CSS, and JavaScript.</p>
+          </div>
+
+          <div class="project">
+            <h3>DoodleJump Clone</h3>
+            <p>A 2D game built with C++ and SFML using OOP concepts.</p>
+          </div>
+
+          <div class="project">
+            <h3>Enterprise Network</h3>
+            <p>A network simulation created with Cisco Packet Tracer.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>
+          Visit my <a href="https://github.com/AdeelFurqan" target="_blank">GitHub profile</a>
+          to see more of my work.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
