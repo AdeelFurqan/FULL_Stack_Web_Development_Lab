@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORBIT Space</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light text-dark">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-dark bg-dark px-3">
+        <a class="navbar-brand fw-bold" href="#home">ORBIT</a>
+        <div>
+            <a href="#missions" class="text-white text-decoration-none me-3">Missions</a>
+            <a href="#planets" class="text-white text-decoration-none me-3">Planets</a>
+            <a href="#about" class="text-white text-decoration-none">About</a>
+        </div>
+    </nav>
+
+    <!-- Welcome section -->
+    <header id="home" class="text-center text-white p-5" style="background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=1600&q=80') center/cover;">
+        <div class="py-5">
+            <h1 class="display-4 fw-bold">Explore Space</h1>
+            <p class="lead">Discover planets and learn about space missions.</p>
+            <a href="#missions" class="btn btn-primary">Explore missions</a>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        <!-- Missions -->
+        <section id="missions" class="mb-5">
+            <h2 class="text-center mb-4">Space missions</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">🚀 Orion</h3>
+                            <p class="card-text">A mission to explore Mars.</p>
+                            <span class="badge text-bg-success">Active</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">🌙 Luna</h3>
+                            <p class="card-text">A mission to explore the Moon.</p>
+                            <span class="badge text-bg-secondary">Complete</span>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <h3 class="h5">🛰️ Voyager</h3>
+                            <p class="card-text">A mission exploring the outer solar system.</p>
+                            <span class="badge text-bg-success">Active</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Planets -->
+        <section id="planets" class="mb-5">
+            <h2 class="text-center mb-4">Planets to discover</h2>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <img src="images/earth.jpg" class="card-img-top" alt="Earth" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="h5">Earth</h3>
+                            <p class="card-text">Our home and the only known planet with life.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <img src="images/mars.jpg" class="card-img-top" alt="Mars" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="h5">Mars</h3>
+                            <p class="card-text">The Red Planet, known for its dusty surface.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-md-4">
+                    <article class="card h-100 shadow-sm">
+                        <img src="images/jupiter.jpg" class="card-img-top" alt="Jupiter" style="height: 200px; object-fit: cover;">
+                        <div class="card-body">
+                            <h3 class="h5">Jupiter</h3>
+                            <p class="card-text">The largest planet in our solar system.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about" class="text-center bg-white rounded shadow-sm p-4">
+            <h2>About ORBIT</h2>
+            <p class="mb-0">ORBIT makes it easy to learn about space, planets, and the people who explore them.</p>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">© 2026 ORBIT Space</p>
+    </footer>
+
+</body>
+
+</html>
