@@ -1,0 +1,22 @@
+function validateMultipleOperations() {
+  // Both operations now have valid data
+  const operation1 = Promise.resolve({ id: 1, data: "First Detail" });
+  const operation2 = Promise.resolve({ id: 2, data: "Second Detail" }); 
+
+  return Promise.all([operation1, operation2])
+    .then((results) => {
+      const [detail1, detail2] = results;
+
+      const isValid = (detail1.id !== null && detail2.id !== null);
+
+      if (isValid) {
+        return Promise.resolve("Both operations returned valid details.");
+      } else {
+        return Promise.reject(new Error("One or more operations returned invalid details."));
+      }
+    });
+}
+
+validateMultipleOperations()
+  .then(successMessage => console.log("Task 2 Success:", successMessage))
+  .catch(errorMessage => console.error("Task 2 Error:", errorMessage.message));
