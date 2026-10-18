@@ -1,22 +1,23 @@
 async function fetchUser() {
   try {
-    // 1. Fetch data from a dummy API
-    const response = await fetch('https://jsonplaceholder.typicode.com/users/1');
+    // Simulating an API call with a 1-second delay
+    const userObject = await new Promise((resolve, reject) => {
+      setTimeout(() => {
+        const isSuccess = true; // Change this to false to test the error message
+        
+        if (isSuccess) {
+          resolve({ id: 1, name: "Test User", email: "test@example.com" });
+        } else {
+          reject(new Error("Unsuccessful fetching"));
+        }
+      }, 1000);
+    });
     
-    // 2. Check if the response was successful
-    if (!response.ok) {
-      throw new Error("Unsuccessful fetching");
-    }
-    
-    // 3. Return the valid user object
-    const userObject = await response.json();
-    return userObject; 
+    return userObject;
     
   } catch (error) {
-    // 4. Return an error on unsuccessful fetching
     return error; 
   }
 }
 
-// Example usage:
-fetchUser().then(result => console.log(result));
+fetchUser().then(result => console.log("Task 1 Result:", result));
