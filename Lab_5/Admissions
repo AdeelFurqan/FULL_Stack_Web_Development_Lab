@@ -1,0 +1,128 @@
+// TASK 1 - Admission Decision and Data Sanitization Engine
+// Run: node task1_admission.js
+
+function toNumber(value, fieldName, errors) {
+  if (value === undefined || value === null || String(value).trim() === '') {
+    errors.push(`${fieldName} is missing`);
+    return null;
+  }
+  const num = Number(value);
+  if (Number.isNaN(num)) {
+    errors.push(`${fieldName} is not a valid number`);
+    return null;
+  }
+  return num;
+}
+
+function checkMarksRange(value, fieldName, errors) {
+  if (value === null) return;
+  if (value < 0 || value > 100) errors.push(`${fieldName} must be between 0 and 100`);
+}
+
+function isProgramSupported(program) {
+  switch (program) {
+    case 'BSCS':
+    case 'BSSE':
+    case 'BSAI':
+      return true;
+    default:
+      return false;
+  }
+}
+
+// 'false' is a non-empty string, so it is TRUTHY. Never use if(applicant.feePaid).
+function toBoolean(value) {
+  return value === true || String(value).toLowerCase() === 'true';
+}
+
+function processApplicant(applicant) {
+  const errors = [];
+
+  if (applicant === null || typeof applicant !== 'object') {
+    return { id: null, name: null, program: 'UNKNOWN', merit: null,
+             status: 'INVALID DATA', errors: ['Applicant record is missing'] };
+  }
+
+  const age = toNumber(applicant.age, 'age', errors);
+  const matric = toNumber(applicant.matricMarks, 'matricMarks', errors);
+  const inter = toNumber(applicant.intermediateMarks, 'intermediateMarks', errors);
+  const entry = toNumber(applicant.entryTest, 'entryTest', errors);
+
+  checkMarksRange(matric, 'matricMarks', errors);
+  checkMarksRange(inter, 'intermediateMarks', errors);
+  checkMarksRange(entry, 'entryTest', errors);
+
+  if (age !== null && (age < 17 || age > 30)) errors.push('age must be between 17 and 30');
+  if (!isProgramSupported(applicant.program)) errors.push('program is not supported');
+  if (!applicant.name || String(applicant.name).trim() === '') errors.push('name is missing');
+
+  const base = { id: applicant.id, name: applicant.name, program: applicant.program ?? 'UNKNOWN' };
+
+  if (errors.length > 0) {
+    return { ...base, merit: null, status: 'INVALID DATA', errors };
+  }
+
+  const merit = matric * 0.2 + inter * 0.3 + entry * 0.5;
+  const eligible = merit >= 70 && entry >= 60 && inter >= 60;
+  const feePaid = toBoolean(applicant.feePaid);
+
+  let status;
+  if (!eligible) {
+    status = 'REJECTED';
+  } else {
+    // Rule: eligible + merit >= 80 + fee paid => SELECTED, otherwise WAITING
+    status = merit >= 80 && feePaid ? 'SELECTED' : 'WAITING';
+  }
+  return { ...base, merit: Number(merit.toFixed(2)), status, errors: [] };
+}
+
+function buildSummary(processed) {
+  const valid = processed.filter((a) => a.status !== 'INVALID DATA');
+  const invalidCount = processed.length - valid.length;
+
+  let highest = null;
+  let lowest = null;
+  let total = 0;
+  for (const a of valid) {
+    total += a.merit;
+    if (highest === null || a.merit > highest.merit) highest = a;
+    if (lowest === null || a.merit < lowest) lowest = a.merit;
+  }
+
+  const programCounts = {};
+  for (const a of processed) {
+    programCounts[a.program] = (programCounts[a.program] || 0) + 1;
+  }
+
+  return {
+    validApplicants: valid.length,
+    invalidApplicants: invalidCount,
+    highestMerit: highest ? { name: highest.name, merit: highest.merit } : null,
+    lowestMeritAmongValid: lowest,
+    averageMerit: valid.length > 0 ? Number((total / valid.length).toFixed(2)) : 0,
+    applicantsPerProgram: programCounts,
+  };
+}
+
+function processAll(applicants) {
+  return applicants.map(processApplicant);
+}
+
+// ---------------- TESTS ----------------
+const applicants = [
+  { id: 'A101', name: 'Sara Khan', age: '19', matricMarks: '91', intermediateMarks: '87', entryTest: '78', program: 'BSCS', feePaid: 'true' },
+  { id: 'A102', name: 'Ahmed Ali', age: 'twenty', matricMarks: '88', intermediateMarks: '', entryTest: '72', program: 'BSSE', feePaid: 'false' },
+  { id: 'A103', name: 'Hassan', age: '18', matricMarks: '76', intermediateMarks: '83', entryTest: '91', program: 'BSAI', feePaid: 'true' },
+  // boundary cases
+  { id: 'B1', name: 'Boundary Min Age', age: '17', matricMarks: '70', intermediateMarks: '60', entryTest: '60', program: 'BSCS', feePaid: 'true' },
+  { id: 'B2', name: 'Boundary Max Age', age: '30', matricMarks: '100', intermediateMarks: '60', entryTest: '80', program: 'BSSE', feePaid: 'false' },
+  // invalid cases
+  { id: 'X1', name: 'Bad Marks', age: '20', matricMarks: '101', intermediateMarks: '80', entryTest: '80', program: 'BSCS', feePaid: 'true' },
+  { id: 'X2', name: 'Too Old', age: '31', matricMarks: '80', intermediateMarks: '80', entryTest: '80', program: 'BBA', feePaid: 'true' },
+  null,
+];
+
+const processed = processAll(applicants);
+console.table(processed.map(({ id, name, merit, status }) => ({ id, name, merit, status })));
+console.log('Errors for A102:', processed[1].errors);
+console.log('Summary:', buildSummary(processed));
