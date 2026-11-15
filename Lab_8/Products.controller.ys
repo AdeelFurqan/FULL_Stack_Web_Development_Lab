@@ -1,0 +1,32 @@
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
+import { ProductsService } from './products.service';
+
+@Controller('products') // base route: /products
+export class ProductsController {
+  constructor(private productsService: ProductsService) {}
+
+  @Get() // GET /products
+  findAll() {
+    return this.productsService.findAll();
+  }
+
+  @Get(':id') // GET /products/1
+  findOne(@Param('id', ParseIntPipe) id: number) {
+    return this.productsService.findOne(id);
+  }
+
+  @Post() // POST /products
+  create(@Body() body: any) {
+    return this.productsService.create(body);
+  }
+
+  @Put(':id') // PUT /products/1
+  update(@Param('id', ParseIntPipe) id: number, @Body() body: any) {
+    return this.productsService.update(id, body);
+  }
+
+  @Delete(':id') // DELETE /products/1
+  remove(@Param('id', ParseIntPipe) id: number) {
+    return this.productsService.remove(id);
+  }
+}
