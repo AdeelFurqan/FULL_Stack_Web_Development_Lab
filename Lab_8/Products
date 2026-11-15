@@ -1,0 +1,45 @@
+import { Injectable, NotFoundException } from '@nestjs/common';
+
+@Injectable()
+export class ProductsService {
+  // In-memory data (acts as our database)
+  private products = [
+    { id: 1, name: 'Laptop', price: 900, stock: 10 },
+    { id: 2, name: 'Phone', price: 500, stock: 20 },
+    { id: 3, name: 'Headphones', price: 50, stock: 30 },
+  ];
+  private nextId = 4;
+
+  // Get all products
+  findAll() {
+    return this.products;
+  }
+
+  // Get one product by id
+  findOne(id: number) {
+    const product = this.products.find((p) => p.id === id);
+    if (!product) throw new NotFoundException('Product not found');
+    return product;
+  }
+
+  // Add a new product
+  create(data: { name: string; price: number; stock: number }) {
+    const product = { id: this.nextId++, ...data };
+    this.products.push(product);
+    return product;
+  }
+
+  // Update an existing product
+  update(id: number, data: any) {
+    const product = this.findOne(id);
+    Object.assign(product, data);
+    return product;
+  }
+
+  // Delete a product
+  remove(id: number) {
+    this.findOne(id);
+    this.products = this.products.filter((p) => p.id !== id);
+    return { message: 'Product deleted' };
+  }
+}
