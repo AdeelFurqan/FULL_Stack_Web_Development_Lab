@@ -1,0 +1,49 @@
+import { BadRequestException, Injectable } from '@nestjs/common';
+import { ProductsService } from '../products/products.service';
+
+@Injectable()
+export class CartService {
+  private items: any[] = [];
+
+  // Dependency Injection: Nest gives us ProductsService
+  constructor(private productsService: ProductsService) {}
+
+  // View cart with total price
+  getCart() {
+    const total = this.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
+    return { items: this.items, total };
+  }
+
+  // Add product to cart
+  addToCart(productId: number, quantity: number) {
+    const product = this.productsService.findOne(productId);
+
+    if (quantity > product.stock) {
+      throw new BadRequestException('Not enough stock');
+    }
+
+    const existing = this.items.find((i) => i.productId === productId);
+    if (existing) {
+      existing.quantity += quantity;
+    } else {
+      this.items.push({
+        productId,
+        name: product.name,
+        price: product.price,
+        quantity,
+      });
+    }
+    return this.getCart();
+  }
+
+  // Remove product from cart
+  removeFromCart(productId: number) {
+    this.items = this.items.filter((i) => i.productId !== productId);
+    return this.getCart();
+  }
+
+  // Empty the cart (used after checkout)
+  clearCart() {
+    this.items = [];
+  }
+}
