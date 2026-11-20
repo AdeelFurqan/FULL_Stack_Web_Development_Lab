@@ -1,0 +1,35 @@
+import {
+  Controller, Get, Param, ParseIntPipe, Post,
+  Headers, UnauthorizedException, ForbiddenException,
+} from '@nestjs/common';
+import { OrdersService } from './orders.service';
+
+@Controller('orders')
+export class OrdersController {
+  constructor(private ordersService: OrdersService) {}
+
+  @Post('checkout')
+  checkout(@Headers('authorization') token: string) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    return this.ordersService.checkout();
+  }
+
+  @Get()
+  findAll(
+    @Headers('authorization') token: string,
+    @Headers('role') role: string,
+  ) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    if (role !== 'admin') throw new ForbiddenException('Admin access only');
+    return this.ordersService.findAll();
+  }
+
+  @Get(':id')
+  findOne(
+    @Param('id', ParseIntPipe) id: number,
+    @Headers('authorization') token: string,
+  ) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    return this.ordersService.findOne(id);
+  }
+}
