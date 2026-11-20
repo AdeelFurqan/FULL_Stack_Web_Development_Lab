@@ -1,0 +1,34 @@
+import {
+  Body, Controller, Delete, Get, Param, ParseIntPipe, Post,
+  Headers, UnauthorizedException,
+} from '@nestjs/common';
+import { CartService } from './cart.service';
+
+@Controller('cart')
+export class CartController {
+  constructor(private cartService: CartService) {}
+
+  @Get()
+  getCart(@Headers('authorization') token: string) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    return this.cartService.getCart();
+  }
+
+  @Post()
+  addToCart(
+    @Body() body: { productId: number; quantity: number },
+    @Headers('authorization') token: string,
+  ) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    return this.cartService.addToCart(body.productId, body.quantity);
+  }
+
+  @Delete(':productId')
+  remove(
+    @Param('productId', ParseIntPipe) productId: number,
+    @Headers('authorization') token: string,
+  ) {
+    if (!token) throw new UnauthorizedException('Please login first');
+    return this.cartService.removeFromCart(productId);
+  }
+}
